@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AA Alicante - Grupo Salida Alicante</title>
+    <style>
+        :root {
+            --aa-blue: #002d85;
+            --aa-blue-light: #003db3;
+            --bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --border: #e0e0e0;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: -apple-system, system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 20px 24px 80px;
+            box-sizing: border-box;
+        }
+
+        .lang-switcher {
+            display: flex; justify-content: center;
+            gap: 20px; margin-bottom: 30px;
+            position: sticky; top: 0; background: rgba(255,255,255,0.95);
+            padding: 15px 0; z-index: 100;
+        }
+
+        .lang-link {
+            text-decoration: none; font-size: 26px;
+            cursor: pointer; opacity: 0.4;
+            transition: 0.3s;
+        }
+        .lang-link.active { opacity: 1; transform: scale(1.1); }
+
+        .logo-img { 
+            width: 160px; height: auto; 
+            margin: 0 auto 30px; 
+            display: block; 
+        }
+
+        .hero-section { text-align: center; margin-bottom: 40px; }
+        
+        h1 { 
+            font-size: 22px; 
+            font-weight: 700; 
+            color: var(--aa-blue); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-bottom: 25px;
+        }
+
+        .phrase { 
+            font-size: 28px; 
+            font-weight: 800; 
+            line-height: 1.2; 
+            margin-bottom: 16px; 
+            color: var(--text-main);
+        }
+        
+        .sub-phrase { 
+            font-size: 16px; 
+            color: var(--aa-blue); 
+            font-weight: 600;
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            line-height: 1.4;
+        }
+
+        .buttons-stack { display: flex; flex-direction: column; gap: 14px; }
+
+        .btn {
+            background: var(--aa-blue);
+            color: white;
+            padding: 18px;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,45,133,0.2);
+        }
+
+        .btn-call {
+            padding: 14px 18px;
+            background: var(--aa-blue);
+        }
+        .btn-call span {
+            display: block;
+            font-size: 20px;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--aa-blue);
+            border: 2px solid var(--aa-blue);
+            box-shadow: none;
+        }
+
+        .section-title {
+            font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+            margin: 50px 0 20px; color: var(--aa-blue); text-align: center;
+        }
+
+        .grid-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn-grid {
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 14px 5px;
+            font-size: 12px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #location-section { margin-top: 50px; }
+        .info-card { 
+            background: #f4f7ff; 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-bottom: 15px;
+            border-left: 4px solid var(--aa-blue);
+        }
+        .info-card h3 { font-size: 12px; text-transform: uppercase; margin-bottom: 8px; color: var(--aa-blue); }
+        .info-card p { margin: 0; font-size: 17px; font-weight: 500; line-height: 1.4; }
+        .festive-note { color: #d32f2f; font-size: 13px; font-weight: 700; margin-top: 8px; display: block; text-transform: uppercase; }
+        
+        .map-frame { 
+            width: 100%; 
+            height: 350px; 
+            border: 0; 
+            border-radius: 10px; 
+            margin-top: 15px; 
+            background: #eee;
+        }
+
+        .footer-text { margin-top: 60px; font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="lang-switcher">
+        <div class="lang-link active" onclick="setLang('es', event)">🇪🇸</div>
+        <div class="lang-link" onclick="setLang('en', event)">🇬🇧</div>
+        <div class="lang-link" onclick="setLang('de', event)">🇩🇪</div>
+        <div class="lang-link" onclick="setLang('ru', event)">🇷🇺</div>
+    </div>
+
+    <img src="../assets/aae.png" alt="AA Logo" class="logo-img">
+    
+    <div class="hero-section">
+        <h1 id="h1-title">Alcohólicos Anónimos</h1>
+        <div class="phrase" id="main-phrase">Grupo Salida Alicante</div>
+        <div class="sub-phrase" id="sub-phrase">Como dejar de beber.<br>Quiero dejar de beber.</div>
+    </div>
+
+    <div class="buttons-stack">
+        <a href="tel:+34679212535" class="btn btn-call">
+            <small id="call-text">Llamar ahora</small>
+            <span>+34 679 212 535</span>
+        </a>
+        <a href="https://wa.me/34679212535" class="btn btn-outline" id="btn-wa">WhatsApp</a>
+        <a href="#location-section" class="btn btn-outline" id="btn-loc">Dónde estamos</a>
+    </div>
+
+    <div id="location-section">
+        <h2 class="section-title" id="loc-title">Ubicación y Horario</h2>
+        
+        <div class="info-card">
+            <h3 id="addr-label">Dirección</h3>
+            <p>c/. Monforte del Cid, 28<br>Parroquia de San José de Carolinas<br>03012 Alicante</p>
+        </div>
+
+        <div class="info-card">
+            <h3 id="sched-label">Horario</h3>
+            <p id="sched-days">Reuniones todos los Martes y Viernes:<br> 19:30 - 21:00</p>
+            <p id="sched-sat"> </p>
+            <span class="festive-note" id="festive-note">Incluyendo días festivos</span>
+        </div>
+
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3128.5122700107936!2d-0.485729303210448!3d38.36026929999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd623707003b8845%3A0x1d6b2dc62115644d!2sParroquia%20de%20San%20Jos%C3%A9!5e0!3m2!1ses!2ses!4v1776704620482!5m2!1ses!2ses" width="400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <h2 class="section-title" id="others-title">Otros grupos</h2>
+    <div class="grid-groups">
+        <a href="/aacostablanca" class="btn-grid">Grupo Internacional</a>
+        <a href="/alicante" class="btn-grid">Alicante</a>
+        <a href="/salida_alicante" class="btn-grid">Salida Alicante</a>
+        <a href="/nv_alicante" class="btn-grid">Nueva Vida Alicante</a>
+        <a href="/altea" class="btn-grid">Altea</a>
+        <a href="/marina_baixa" class="btn-grid">Marina Baixa Benidorm</a>
+        <a href="/benidorm" class="btn-grid">Benidorm</a>
+        <a href="/ondara" class="btn-grid">Ondara</a>
+        <a href="/marina_altas" class="btn-grid">Gata de Gargos</a>
+        <a href="/" class="btn-grid">Denia</a>
+        <a href="/las_salinas" class="btn-grid">Torrevieja</a>
+        <a href="/san_vicente" class="btn-grid">San Vicente</a>
+        <a href="/elche" class="btn-grid">Elche</a>
+    </div>
+
+    <div class="footer-text">© 2026 AA Alicante</div>
+</div>
+
+<script>
+    const content = {
+        es: {
+            phrase: "Grupo Salida",
+            subPhrase: "Como dejar de beber.<br>Quiero dejar de beber.",
+            callText: "Llamar ahora",
+            wa: "WhatsApp",
+            loc: "Dónde estamos",
+            others: "Otros grupos",
+            locTitle: "Ubicación y Horario",
+            addr: "Dirección",
+            sched: "Horario",
+            days: "Reuniones todos los Martes y Viernes:<br> 19:30 - 21:00",
+            sat: " ",
+            festive: "Incluyendo días festivos"
+        },
+        en: {
+            phrase: "Salida Group Alicante",
+            subPhrase: "How to stop drinking.<br>I want to stop drinking.",
+            callText: "Call now",
+            wa: "WhatsApp",
+            loc: "Location",
+            others: "Other groups",
+            locTitle: "Location & Schedule",
+            addr: "Address",
+            sched: "Schedule",
+            days: "Meeting every Tuesdays and Fridays:<br> 19:30 - 21:00",
+            sat: " ",
+            festive: "Including public holidays"
+        },
+        de: {
+            phrase: "Salida Gruppe Alicante",
+            subPhrase: "Wie man aufhört zu trinken.<br>Ich möchte aufhören.",
+            callText: "Jetzt anrufen",
+            wa: "WhatsApp",
+            loc: "Anfahrt",
+            others: "Andere Gruppen Alicante",
+            locTitle: "Standort & Termine",
+            addr: "Adresse",
+            sched: "Termine",
+            days: "Treffen jeden Dienstags und Freitags:<br> 19:30 - 21:00",
+            sat: " ",
+            festive: "Einschließlich Feiertage"
+        },
+        ru: {
+            phrase: "Группа Салида Аликанте",
+            subPhrase: "Как бросить пить.<br>Я хочу бросить пить.",
+            callText: "Позвонить",
+            wa: "WhatsApp",
+            loc: "Где мы находимся",
+            others: "Другие группы",
+            locTitle: "Адрес и Расписание",
+            addr: "Адрес",
+            sched: "Расписание",
+            days: "Встречи каждый Вторник и Пятницу:<br> 19:30 - 21:00",
+            sat: " ",
+            festive: "Включая праздничные дни"
+        }
+    };
+
+    function setLang(lang, event) {
+        const c = content[lang];
+        document.getElementById('main-phrase').innerHTML = c.phrase;
+        document.getElementById('sub-phrase').innerHTML = c.subPhrase;
+        document.getElementById('call-text').innerText = c.callText;
+        document.getElementById('btn-wa').innerText = c.wa;
+        document.getElementById('btn-loc').innerText = c.loc;
+        document.getElementById('others-title').innerText = c.others;
+        document.getElementById('loc-title').innerText = c.locTitle;
+        document.getElementById('addr-label').innerText = c.addr;
+        document.getElementById('sched-label').innerText = c.sched;
+        document.getElementById('sched-days').innerText = c.days;
+        document.getElementById('sched-sat').innerText = c.sat;
+        document.getElementById('festive-note').innerText = c.festive;
+
+        document.querySelectorAll('.lang-link').forEach(el => el.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
